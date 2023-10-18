@@ -1,4 +1,4 @@
-package com.spring.Entity;
+package com.spring.domain;
 
 import lombok.Data;
 

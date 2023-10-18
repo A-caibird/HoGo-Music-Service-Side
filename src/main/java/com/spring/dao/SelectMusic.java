@@ -1,6 +1,6 @@
-package com.spring.DAO;
+package com.spring.dao;
 
-import com.spring.Entity.Music;
+import com.spring.domain.Music;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -10,3 +10,4 @@ public interface SelectMusic {
     @Select("select * from musicList where Id = #{id}")
     public Music getById(@Param("id") int id);
 }
+
