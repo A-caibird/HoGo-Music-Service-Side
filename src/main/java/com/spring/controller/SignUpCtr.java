@@ -1,9 +1,8 @@
 package com.spring.controller;
 
-import com.spring.dao.GetUserInfo;
+import com.spring.dao.GetSpecificUserInfo;
 import com.spring.dao.InsertUser;
 import com.spring.domain.SignUpRequest;
-import com.spring.domain.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,13 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin(origins = "*")
-public class SignUpController {
-    private GetUserInfo getUserInfo;
+public class SignUpCtr {
+    private GetSpecificUserInfo getSpecificUserInfo;
     private InsertUser insertUser;
 
     @Autowired
-    public void setGetUserInfo(GetUserInfo getUserInfo) {
-        this.getUserInfo = getUserInfo;
+    public void setGetUserInfo(GetSpecificUserInfo getSpecificUserInfo) {
+        this.getSpecificUserInfo = getSpecificUserInfo;
     }
 
     @Autowired
@@ -33,7 +32,7 @@ public class SignUpController {
         String password = rb.getPassword();
         String email = rb.getEmail();
 
-        int len =  getUserInfo.getUserList(name).size();
+        int len =  getSpecificUserInfo.getUserList(name).size();
         if (len> 0){
             return "users info exist";
         } else {
