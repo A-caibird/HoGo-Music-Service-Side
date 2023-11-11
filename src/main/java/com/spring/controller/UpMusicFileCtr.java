@@ -7,7 +7,7 @@ import java.io.File;
 
 @RestController
 @CrossOrigin(origins = "*")
-public class UpMusicCtr {
+public class UpMusicFileCtr {
     @PostMapping("/uploadMusicFile")
     public String method(@RequestParam("mp3") MultipartFile file) throws Exception {
         String fileName = file.getOriginalFilename();
@@ -16,3 +16,4 @@ public class UpMusicCtr {
         return fileName;
     }
 }
+
