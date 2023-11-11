@@ -52,7 +52,8 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.24</version>
+            <version>1.18.30</version>
+            <!--这个版本才支持jdk21-->
             <scope>provided</scope>
         </dependency>
     </dependencies>
