@@ -10,3 +10,6 @@ spring:
           enabled: true #是否启用http上传处理
           max-file-size: 60MB #设置单个文件最大长度
           max-request-size: 100MB #最大请求文件的大小
+
+server:
+    port: 8080
