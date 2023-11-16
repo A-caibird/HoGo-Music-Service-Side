@@ -23,6 +23,11 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <version>3.1.4</version>
+        </dependency>
+        <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
             <version>3.0.2</version>
@@ -63,14 +68,17 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <!--  打包              -->
+                <!--  打包  -->
                 <configuration>
+                    <!--<fork>true<fork>-->
                     <mainClass>
                         com.spring.Application
                     </mainClass>
+                    <!--支持静态文件热部署-->
+                    <addResources>true</addResources>
                 </configuration>
+
             </plugin>
         </plugins>
     </build>
-
 </project>

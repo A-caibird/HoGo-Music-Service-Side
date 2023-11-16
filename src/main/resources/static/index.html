@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>JSON解析示例</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<h1>JSON解析示例</h1>
+<button onclick="fetchData()">获取JSON数据</button>
+<pre id="output"></pre>
+<script>
+    function fetchData() {
+        // 发起GET请求获取JSON数据
+        axios.get('/json')
+            .then(function (response) {
+                // 解析JSON
+                let jsonData = response.data;
+
+                // 在页面上显示解析后的JSON数据
+                document.getElementById("output").textContent = jsonData.str
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+</script>
+</body>
+</html>
