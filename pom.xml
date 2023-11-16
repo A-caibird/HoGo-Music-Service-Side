@@ -11,7 +11,7 @@
     <groupId>com</groupId>
     <artifactId>spring</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>spring</name>
     <description>spring</description>
     <properties>
@@ -63,6 +63,12 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <!--  打包              -->
+                <configuration>
+                    <mainClass>
+                        com.spring.Application
+                    </mainClass>
+                </configuration>
             </plugin>
         </plugins>
     </build>
