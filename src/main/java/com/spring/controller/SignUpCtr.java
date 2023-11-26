@@ -4,6 +4,8 @@ import com.spring.dao.GetSpecificUserInfo;
 import com.spring.dao.InsertUser;
 import com.spring.domain.SignUpRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,7 +28,7 @@ public class SignUpCtr {
     }
 
     @PostMapping("/SignUp")
-    public String signUp(@RequestBody SignUpRequest rb) {
+    public ResponseEntity<String> signUp(@RequestBody SignUpRequest rb) {
         // 请求体参数
         String name = rb.getName();
         String password = rb.getPassword();
@@ -34,7 +36,7 @@ public class SignUpCtr {
 
         int len =  getSpecificUserInfo.getUserList(name).size();
         if (len> 0){
-            return "users info exist";
+            return new ResponseEntity<>("users info exist", HttpStatus.CONFLICT);
         } else {
             int res = 0;
             try {
@@ -43,8 +45,8 @@ public class SignUpCtr {
                 e.printStackTrace();
             }
             if (res == 1)
-                return "sign up success";
+                return new  ResponseEntity<>("sign up success", HttpStatus.OK);
         }
-        return "sign up fail";
+        return new ResponseEntity<>("sign up fail",HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
