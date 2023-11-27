@@ -2,7 +2,7 @@ package com.spring.controller;
 
 import com.spring.dao.GetSpecificUserInfo;
 import com.spring.dao.InsertUser;
-import com.spring.domain.SignUpRequest;
+import com.spring.domain.RequestionParams.SignUpRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

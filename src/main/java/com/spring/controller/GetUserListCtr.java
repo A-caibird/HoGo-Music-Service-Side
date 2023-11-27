@@ -1,6 +1,6 @@
 package com.spring.controller;
 import com.spring.dao.GetUerList;
-import com.spring.domain.UserInfo;
+import com.spring.domain.SqlTable.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

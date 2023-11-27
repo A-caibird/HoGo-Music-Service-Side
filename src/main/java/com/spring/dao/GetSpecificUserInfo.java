@@ -1,7 +1,7 @@
 package com.spring.dao;
 
 import org.apache.ibatis.annotations.Mapper;
-import com.spring.domain.UserInfo;
+import com.spring.domain.SqlTable.UserInfo;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import java.util.List;

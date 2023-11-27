@@ -1,8 +1,8 @@
 package com.spring.controller;
 
 import com.spring.dao.GetSpecificUserInfo;
-import com.spring.domain.LoginRequest;
-import com.spring.domain.UserInfo;
+import com.spring.domain.RequestionParams.LoginRequest;
+import com.spring.domain.SqlTable.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

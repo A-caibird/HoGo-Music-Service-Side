@@ -1,4 +1,4 @@
-package com.spring.domain;
+package com.spring.domain.RequestionParams;
 
 import lombok.Data;
 @Data

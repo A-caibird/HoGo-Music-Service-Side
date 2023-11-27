@@ -1,8 +1,7 @@
 package com.spring.controller;
 
 import com.spring.dao.InsertMusic;
-import com.spring.domain.AddMusicRequest;
-import lombok.Data;
+import com.spring.domain.RequestionParams.AddMusicRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

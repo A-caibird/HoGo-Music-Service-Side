@@ -1,4 +1,4 @@
-package com.spring.domain;
+package com.spring.domain.SqlTable;
 
 import lombok.Data;
 
