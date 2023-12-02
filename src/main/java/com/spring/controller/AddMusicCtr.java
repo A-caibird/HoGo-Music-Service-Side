@@ -25,11 +25,11 @@ public class AddMusicCtr {
             res = insertMusic.insertMusic(rq.getMusicName(), rq.getSingerName_album(), rq.getTimeLength(), rq.getUrl());
         } catch (Exception e) {
             e.printStackTrace();
-            return new ResponseEntity<String>("fail", HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("fail", HttpStatus.INTERNAL_SERVER_ERROR);
         }
         if (res == 1)
-            return new ResponseEntity<String>("sucess", HttpStatus.OK);
-        return new ResponseEntity<String>("fail", HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("sucess", HttpStatus.OK);
+        return new ResponseEntity<>("fail", HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
 
