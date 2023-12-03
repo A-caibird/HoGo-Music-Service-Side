@@ -1,0 +1,69 @@
+2023-12-04 00:22:59.433 [1;33m[SpringApplicationShutdownHook][0;39m [34mINFO [0;39m [36mc.z.h.HikariDataSource[0;39m - [close,350] - HikariPool-1 - Shutdown initiated...
+2023-12-04 00:22:59.438 [1;33m[SpringApplicationShutdownHook][0;39m [34mINFO [0;39m [36mc.z.h.HikariDataSource[0;39m - [close,352] - HikariPool-1 - Shutdown completed.
+2023-12-04 00:23:01.511 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mc.spring.Application[0;39m - [logStarting,51] - Starting Application using Java 21.0.1 with PID 13710 (/Users/acaibird/Documents/CodeExperimentSpace/Java/spring/target/classes started by acaibird in /Users/acaibird/Documents/CodeExperimentSpace/Java/spring)
+2023-12-04 00:23:01.512 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mc.spring.Application[0;39m - [logStartupProfileInfo,637] - No active profile set, falling back to 1 default profile: "default"
+2023-12-04 00:23:01.535 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mo.s.b.d.e.DevToolsPropertyDefaultsPostProcessor[0;39m - [logTo,250] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-12-04 00:23:01.535 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mo.s.b.d.e.DevToolsPropertyDefaultsPostProcessor[0;39m - [logTo,250] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-12-04 00:23:01.958 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mo.s.b.w.e.t.TomcatWebServer[0;39m - [initialize,108] - Tomcat initialized with port(s): 8080 (http)
+2023-12-04 00:23:01.961 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mo.a.c.h.Http11NioProtocol[0;39m - [log,173] - Initializing ProtocolHandler ["http-nio-8080"]
+2023-12-04 00:23:01.962 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mo.a.c.c.StandardService[0;39m - [log,173] - Starting service [Tomcat]
+2023-12-04 00:23:01.962 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mo.a.c.c.StandardEngine[0;39m - [log,173] - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2023-12-04 00:23:01.984 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mo.a.c.c.C.[.[.[/][0;39m - [log,173] - Initializing Spring embedded WebApplicationContext
+2023-12-04 00:23:01.985 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mo.s.b.w.s.c.ServletWebServerApplicationContext[0;39m - [prepareWebApplicationContext,291] - Root WebApplicationContext: initialization completed in 449 ms
+2023-12-04 00:23:02.134 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mo.s.b.a.w.s.WelcomePageHandlerMapping[0;39m - [<init>,59] - Adding welcome page: class path resource [static/index.html]
+2023-12-04 00:23:02.200 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mo.s.b.d.a.OptionalLiveReloadServer[0;39m - [startServer,59] - LiveReload server is running on port 35729
+2023-12-04 00:23:02.209 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mo.a.c.h.Http11NioProtocol[0;39m - [log,173] - Starting ProtocolHandler ["http-nio-8080"]
+2023-12-04 00:23:02.216 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mo.s.b.w.e.t.TomcatWebServer[0;39m - [start,220] - Tomcat started on port(s): 8080 (http) with context path ''
+2023-12-04 00:23:02.221 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mc.spring.Application[0;39m - [logStarted,57] - Started Application in 0.911 seconds (process running for 1.227)
+2023-12-04 00:23:18.828 [1;33m[http-nio-8080-exec-1][0;39m [34mINFO [0;39m [36mo.a.c.c.C.[.[.[/][0;39m - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-12-04 00:23:18.828 [1;33m[http-nio-8080-exec-1][0;39m [34mINFO [0;39m [36mo.s.w.s.DispatcherServlet[0;39m - [initServletBean,532] - Initializing Servlet 'dispatcherServlet'
+2023-12-04 00:23:18.829 [1;33m[http-nio-8080-exec-1][0;39m [34mINFO [0;39m [36mo.s.w.s.DispatcherServlet[0;39m - [initServletBean,554] - Completed initialization in 1 ms
+2023-12-04 00:23:18.865 [1;33m[http-nio-8080-exec-1][0;39m [34mINFO [0;39m [36mc.z.h.HikariDataSource[0;39m - [getConnection,110] - HikariPool-1 - Starting...
+2023-12-04 00:23:18.938 [1;33m[http-nio-8080-exec-1][0;39m [34mINFO [0;39m [36mc.z.h.p.HikariPool[0;39m - [checkFailFast,565] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@25446253
+2023-12-04 00:23:18.939 [1;33m[http-nio-8080-exec-1][0;39m [34mINFO [0;39m [36mc.z.h.HikariDataSource[0;39m - [getConnection,123] - HikariPool-1 - Start completed.
+2023-12-04 00:24:58.661 [1;33m[SpringApplicationShutdownHook][0;39m [34mINFO [0;39m [36mc.z.h.HikariDataSource[0;39m - [close,350] - HikariPool-1 - Shutdown initiated...
+2023-12-04 00:24:58.671 [1;33m[SpringApplicationShutdownHook][0;39m [34mINFO [0;39m [36mc.z.h.HikariDataSource[0;39m - [close,352] - HikariPool-1 - Shutdown completed.
+2023-12-04 00:25:00.944 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mc.spring.Application[0;39m - [logStarting,51] - Starting Application using Java 21.0.1 with PID 13757 (/Users/acaibird/Documents/CodeExperimentSpace/Java/spring/target/classes started by acaibird in /Users/acaibird/Documents/CodeExperimentSpace/Java/spring)
+2023-12-04 00:25:00.945 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mc.spring.Application[0;39m - [logStartupProfileInfo,637] - No active profile set, falling back to 1 default profile: "default"
+2023-12-04 00:25:00.964 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mo.s.b.d.e.DevToolsPropertyDefaultsPostProcessor[0;39m - [logTo,250] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-12-04 00:25:00.965 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mo.s.b.d.e.DevToolsPropertyDefaultsPostProcessor[0;39m - [logTo,250] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-12-04 00:25:01.371 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mo.s.b.w.e.t.TomcatWebServer[0;39m - [initialize,108] - Tomcat initialized with port(s): 8080 (http)
+2023-12-04 00:25:01.374 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mo.a.c.h.Http11NioProtocol[0;39m - [log,173] - Initializing ProtocolHandler ["http-nio-8080"]
+2023-12-04 00:25:01.375 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mo.a.c.c.StandardService[0;39m - [log,173] - Starting service [Tomcat]
+2023-12-04 00:25:01.375 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mo.a.c.c.StandardEngine[0;39m - [log,173] - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2023-12-04 00:25:01.395 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mo.a.c.c.C.[.[.[/][0;39m - [log,173] - Initializing Spring embedded WebApplicationContext
+2023-12-04 00:25:01.395 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mo.s.b.w.s.c.ServletWebServerApplicationContext[0;39m - [prepareWebApplicationContext,291] - Root WebApplicationContext: initialization completed in 430 ms
+2023-12-04 00:25:01.546 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mo.s.b.a.w.s.WelcomePageHandlerMapping[0;39m - [<init>,59] - Adding welcome page: class path resource [static/index.html]
+2023-12-04 00:25:01.614 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mo.s.b.d.a.OptionalLiveReloadServer[0;39m - [startServer,59] - LiveReload server is running on port 35729
+2023-12-04 00:25:01.621 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mo.a.c.h.Http11NioProtocol[0;39m - [log,173] - Starting ProtocolHandler ["http-nio-8080"]
+2023-12-04 00:25:01.629 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mo.s.b.w.e.t.TomcatWebServer[0;39m - [start,220] - Tomcat started on port(s): 8080 (http) with context path ''
+2023-12-04 00:25:01.635 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mc.spring.Application[0;39m - [logStarted,57] - Started Application in 0.878 seconds (process running for 1.157)
+2023-12-04 00:25:02.379 [1;33m[http-nio-8080-exec-1][0;39m [34mINFO [0;39m [36mo.a.c.c.C.[.[.[/][0;39m - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-12-04 00:25:02.379 [1;33m[http-nio-8080-exec-1][0;39m [34mINFO [0;39m [36mo.s.w.s.DispatcherServlet[0;39m - [initServletBean,532] - Initializing Servlet 'dispatcherServlet'
+2023-12-04 00:25:02.380 [1;33m[http-nio-8080-exec-1][0;39m [34mINFO [0;39m [36mo.s.w.s.DispatcherServlet[0;39m - [initServletBean,554] - Completed initialization in 1 ms
+2023-12-04 00:25:02.403 [1;33m[http-nio-8080-exec-1][0;39m [34mINFO [0;39m [36mc.z.h.HikariDataSource[0;39m - [getConnection,110] - HikariPool-1 - Starting...
+2023-12-04 00:25:02.488 [1;33m[http-nio-8080-exec-1][0;39m [34mINFO [0;39m [36mc.z.h.p.HikariPool[0;39m - [checkFailFast,565] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@58a472e1
+2023-12-04 00:25:02.489 [1;33m[http-nio-8080-exec-1][0;39m [34mINFO [0;39m [36mc.z.h.HikariDataSource[0;39m - [getConnection,123] - HikariPool-1 - Start completed.
+2023-12-04 00:26:15.073 [1;33m[SpringApplicationShutdownHook][0;39m [34mINFO [0;39m [36mc.z.h.HikariDataSource[0;39m - [close,350] - HikariPool-1 - Shutdown initiated...
+2023-12-04 00:26:15.078 [1;33m[SpringApplicationShutdownHook][0;39m [34mINFO [0;39m [36mc.z.h.HikariDataSource[0;39m - [close,352] - HikariPool-1 - Shutdown completed.
+2023-12-04 00:26:16.620 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mc.spring.Application[0;39m - [logStarting,51] - Starting Application using Java 21.0.1 with PID 13773 (/Users/acaibird/Documents/CodeExperimentSpace/Java/spring/target/classes started by acaibird in /Users/acaibird/Documents/CodeExperimentSpace/Java/spring)
+2023-12-04 00:26:16.621 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mc.spring.Application[0;39m - [logStartupProfileInfo,637] - No active profile set, falling back to 1 default profile: "default"
+2023-12-04 00:26:16.642 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mo.s.b.d.e.DevToolsPropertyDefaultsPostProcessor[0;39m - [logTo,250] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-12-04 00:26:16.642 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mo.s.b.d.e.DevToolsPropertyDefaultsPostProcessor[0;39m - [logTo,250] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-12-04 00:26:17.033 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mo.s.b.w.e.t.TomcatWebServer[0;39m - [initialize,108] - Tomcat initialized with port(s): 8080 (http)
+2023-12-04 00:26:17.036 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mo.a.c.h.Http11NioProtocol[0;39m - [log,173] - Initializing ProtocolHandler ["http-nio-8080"]
+2023-12-04 00:26:17.037 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mo.a.c.c.StandardService[0;39m - [log,173] - Starting service [Tomcat]
+2023-12-04 00:26:17.037 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mo.a.c.c.StandardEngine[0;39m - [log,173] - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2023-12-04 00:26:17.057 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mo.a.c.c.C.[.[.[/][0;39m - [log,173] - Initializing Spring embedded WebApplicationContext
+2023-12-04 00:26:17.057 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mo.s.b.w.s.c.ServletWebServerApplicationContext[0;39m - [prepareWebApplicationContext,291] - Root WebApplicationContext: initialization completed in 415 ms
+2023-12-04 00:26:17.194 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mo.s.b.a.w.s.WelcomePageHandlerMapping[0;39m - [<init>,59] - Adding welcome page: class path resource [static/index.html]
+2023-12-04 00:26:17.253 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mo.s.b.d.a.OptionalLiveReloadServer[0;39m - [startServer,59] - LiveReload server is running on port 35729
+2023-12-04 00:26:17.260 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mo.a.c.h.Http11NioProtocol[0;39m - [log,173] - Starting ProtocolHandler ["http-nio-8080"]
+2023-12-04 00:26:17.267 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mo.s.b.w.e.t.TomcatWebServer[0;39m - [start,220] - Tomcat started on port(s): 8080 (http) with context path ''
+2023-12-04 00:26:17.272 [1;33m[restartedMain][0;39m [34mINFO [0;39m [36mc.spring.Application[0;39m - [logStarted,57] - Started Application in 0.837 seconds (process running for 1.1)
+2023-12-04 00:26:18.725 [1;33m[http-nio-8080-exec-1][0;39m [34mINFO [0;39m [36mo.a.c.c.C.[.[.[/][0;39m - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-12-04 00:26:18.725 [1;33m[http-nio-8080-exec-1][0;39m [34mINFO [0;39m [36mo.s.w.s.DispatcherServlet[0;39m - [initServletBean,532] - Initializing Servlet 'dispatcherServlet'
+2023-12-04 00:26:18.726 [1;33m[http-nio-8080-exec-1][0;39m [34mINFO [0;39m [36mo.s.w.s.DispatcherServlet[0;39m - [initServletBean,554] - Completed initialization in 1 ms
+2023-12-04 00:26:18.751 [1;33m[http-nio-8080-exec-1][0;39m [34mINFO [0;39m [36mc.z.h.HikariDataSource[0;39m - [getConnection,110] - HikariPool-1 - Starting...
+2023-12-04 00:26:18.836 [1;33m[http-nio-8080-exec-1][0;39m [34mINFO [0;39m [36mc.z.h.p.HikariPool[0;39m - [checkFailFast,565] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1fd2899c
+2023-12-04 00:26:18.837 [1;33m[http-nio-8080-exec-1][0;39m [34mINFO [0;39m [36mc.z.h.HikariDataSource[0;39m - [getConnection,123] - HikariPool-1 - Start completed.
