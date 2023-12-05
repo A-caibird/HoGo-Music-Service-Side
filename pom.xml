@@ -61,6 +61,11 @@
             <!--这个版本才支持jdk21-->
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>me.zhyd.oauth</groupId>
+            <artifactId>JustAuth</artifactId>
+            <version>1.16.6</version>
+        </dependency>
     </dependencies>
 
     <build>
