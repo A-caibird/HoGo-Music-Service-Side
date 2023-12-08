@@ -1,6 +1,6 @@
 package com.spring.controller;
 
-import com.spring.dao.InsertMusic;
+import com.spring.dao.MusicList;
 import com.spring.domain.RequestionParams.AddMusicRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,18 +15,18 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = "*")
 @Transactional(rollbackFor = Exception.class)
 public class AddMusicCtr {
-    private InsertMusic insertMusic;
+    private MusicList musicList;
 
     @Autowired
-    public void setInsertMusic(InsertMusic insertMusic) {
-        this.insertMusic = insertMusic;
+    public void setMusicList(MusicList musicList) {
+        this.musicList = musicList;
     }
 
     @PostMapping("/addMusic")
     public ResponseEntity<String> addMusic(@RequestBody AddMusicRequest rq) {
         int res = 0;
         try {
-            res = insertMusic.insertMusic(rq.getMusicName(), rq.getSingerName_album(), rq.getTimeLength(), rq.getUrl());
+            res = musicList.insertMusic(rq.getMusicName(), rq.getSingerName_album(), rq.getTimeLength(), rq.getUrl());
         } catch (Exception e) {
             e.printStackTrace();
             return new ResponseEntity<>("fail", HttpStatus.INTERNAL_SERVER_ERROR);

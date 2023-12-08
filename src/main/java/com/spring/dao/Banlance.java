@@ -15,4 +15,7 @@ public interface Banlance {
     @Insert("insert into banlance (username,banlance) values (#{username},#{banlance})")
     public int initBanlance(String username, int banlance);
 
+    @Update("UPDATE banlance SET banlance = #{banlance} where username = #{name}")
+    public int pay(@Param("name") String name, @Param("banlance") int banlance);
+
 }
