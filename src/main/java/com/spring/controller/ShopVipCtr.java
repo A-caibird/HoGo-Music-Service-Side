@@ -1,6 +1,7 @@
 package com.spring.controller;
 
 import com.spring.dao.UpdateVipStatus;
+import com.spring.dao.Vip;
 import com.spring.domain.RequestionParams.ShopVipRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatusCode;
@@ -13,11 +14,11 @@ import java.text.SimpleDateFormat;
 @RestController
 @CrossOrigin(origins = "*")
 public class ShopVipCtr {
-    private UpdateVipStatus u;
+    private Vip vip;
 
     @Autowired
-    public void setUpdateVipStatus(UpdateVipStatus u) {
-        this.u = u;
+    public void setVip(Vip vip) {
+        this.vip = vip;
     }
 
     @PostMapping("/payVip")
@@ -41,7 +42,7 @@ public class ShopVipCtr {
             System.err.println(e);
             return new ResponseEntity<>("时间格式转化错误", HttpStatusCode.valueOf(500));
         }
-        int rows = u.updateVipStatus(name, 1, mysqlStartDate, mysqlEndDate);
+        int rows = vip.updateVipStatus(name, 1, mysqlStartDate, mysqlEndDate);
         return new ResponseEntity<>("ok", HttpStatusCode.valueOf(200));
     }
 }
