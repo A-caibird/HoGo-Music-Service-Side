@@ -15,17 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = "*")
 public class SignUpCtr {
     private Vip vip;
-    private InitBanlance initbanlance;
+    private Banlance banlance;
+
     private Users users;
 
     @Autowired
     public void setUsers(Users users) {
         this.users = users;
-    }
-
-    @Autowired
-    public void setInitbanlance(InitBanlance initbanlance) {
-        this.initbanlance = initbanlance;
     }
 
     @Autowired
@@ -47,7 +43,7 @@ public class SignUpCtr {
             int res = 0;
             try {
                 res = users.insertUser(name, password, email);
-                res += initbanlance.initBanlance(name, 0);
+                res += banlance.initBanlance(name, 0);
                 res += vip.initVipStatus(name, 0);
             } catch (Exception e) {
                 e.printStackTrace();
