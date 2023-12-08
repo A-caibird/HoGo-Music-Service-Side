@@ -1,6 +1,5 @@
 package com.spring.controller;
 
-import com.spring.dao.UpdateVipStatus;
 import com.spring.dao.Vip;
 import com.spring.domain.RequestionParams.ShopVipRequest;
 import org.springframework.beans.factory.annotation.Autowired;

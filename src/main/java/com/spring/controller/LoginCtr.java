@@ -1,8 +1,9 @@
 package com.spring.controller;
 
-import com.spring.dao.GetSpecificUserInfo;
+import com.spring.dao.Users;
 import com.spring.domain.RequestionParams.LoginRequest;
 import com.spring.domain.SqlTable.UserInfo;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,11 +13,10 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @CrossOrigin(origins = "*")
 public class LoginCtr {
-    private GetSpecificUserInfo getSpecificUserInfo;
-
+    private Users users;
     @Autowired
-    public void setGetUserInfo(GetSpecificUserInfo getSpecificUserInfo) {
-        this.getSpecificUserInfo = getSpecificUserInfo;
+    public void setUsers(Users users){
+        this.users = users;
     }
 
     @PostMapping("/LogIn")
@@ -30,7 +30,7 @@ public class LoginCtr {
         // 从数据库中获取用户信息
         // 1.没有该用户
         try {
-            a = getSpecificUserInfo.getUserList(name).get(0);
+            a = users.getUserInfo(name).get(0);
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("no this user");

@@ -1,6 +1,7 @@
 package com.spring.controller;
-import com.spring.dao.GetUerList;
+import com.spring.dao.Users;
 import com.spring.domain.SqlTable.UserInfo;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,16 +10,15 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins = "*")
 public class GetUserListCtr {
-    private GetUerList getUerList;
-
+    private Users users;
     @Autowired
-    public void setGetUerList(GetUerList getUerList) {
-        this.getUerList = getUerList;
+    public void setUsers(Users users){
+        this.users = users;
     }
 
     @GetMapping("/userList")
     public List<UserInfo> getUserList() {
-        List<UserInfo> userlist = getUerList.getUserList();
+        List<UserInfo> userlist = users.getUserList();
         System.out.println(userlist);
         return userlist;
     }
