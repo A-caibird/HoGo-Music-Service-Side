@@ -1,10 +1,7 @@
 package com.spring.dao;
 
 import com.spring.domain.SqlTable.UserInfo;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -17,4 +14,8 @@ public interface Users {
 
     @Insert("insert into users (name,password,email) values (#{name},#{password},#{email})")
     public int insertUser(String name,String password,String email);
+
+
+    @Update("update users set active = #{status}  where name = #{name} ")
+    public int upgradeUserActiveStatus(int status,String name);
 }
