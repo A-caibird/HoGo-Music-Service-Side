@@ -10,9 +10,21 @@ spring:
             enabled: true #是否启用http上传处理
             max-file-size: 60MB #设置单个文件最大长度
             max-request-size: 100MB #最大请求文件的大小
+    mvc:
+        #本地静态资源访问url前缀
+        static-path-pattern: /**
+
+        #本地静态资源
+        static-locations: file:${web.upload-path}
+        #本地静态资源配置映射目录，应该是下面的方法
+web:
+    #本地磁盘存储路径,注意不要最后目录的/
+    upload-path: /Users/acaibird/Documents/CodeExperimentSpace/Java/spring/src/main/resources/static
 
 server:
     port: 8080
 
 logging:
     config: src/main/resources/lombok-springboot-log.xml
+
+musicfileDir: "/Users/acaibird/Documents/CodeExperimentSpace/Java/spring/src/main/resources/static/music/"
