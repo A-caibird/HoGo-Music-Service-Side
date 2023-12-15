@@ -27,8 +27,7 @@ public class GetCommentListCtrl {
         List<MusicComment>  list = null;
         try{
             list=commentList.getCommentList();
-            System.out.println(list);
-        }catch (Exception e){
+            }catch (Exception e){
             e.printStackTrace();
             log.error("服务器获取歌曲评价列表错误");
             return new ResponseEntity<>("Internal server error", HttpStatusCode.valueOf(500));
