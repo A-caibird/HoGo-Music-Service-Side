@@ -24,9 +24,10 @@ public class UpMusicFileCtr {
 
     @PostMapping("/uploadMusicFile")
     public String method(@RequestParam("mp3") MultipartFile file) throws Exception {
-        int cnt=musicList.getSongList().size();
-//      String fileName = file.getOriginalFilename();
-        String fileName = Integer.toString(cnt+1);
+        int cnt = musicList.getSongList().size();
+        String Name = file.getOriginalFilename();
+        System.out.println(Name);
+        String fileName = Integer.toString(cnt + 1) + ".mp3";
         file.transferTo(new File(musicfiledir + fileName));
         return fileName;
     }
