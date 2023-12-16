@@ -1,5 +1,6 @@
 package com.spring.dao;
 
+import com.spring.domain.SqlTable.VipTable;
 import org.apache.ibatis.annotations.*;
 
 import java.sql.Date;
@@ -14,4 +15,7 @@ public interface Vip {
 
     @Insert("insert into vip (username,vipStatus) values (#{username},#{vipStatus})")
     public int initVipStatus(String username, int vipStatus);
+
+    @Select("select * from vip where username = #{name}")
+    public VipTable getVipAllInfo(String name);
 }
