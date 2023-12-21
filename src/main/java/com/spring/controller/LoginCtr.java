@@ -3,7 +3,8 @@ package com.spring.controller;
 import com.spring.dao.Users;
 import com.spring.domain.RequestionParams.LoginRequest;
 import com.spring.domain.SqlTable.UserInfo;
-import org.apache.catalina.User;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,13 +21,13 @@ public class LoginCtr {
     }
 
     @PostMapping("/LogIn")
-    public ResponseEntity<String> login(@RequestBody LoginRequest user) {
+    public ResponseEntity<String> login(@RequestBody LoginRequest user, HttpServletRequest request) {
         // 请求体参数
         String name = user.getName();
         String password = user.getPassword();
         System.out.println(name + " " + password);
         UserInfo a = new UserInfo();
-
+        HttpSession session = request.getSession();
         // 从数据库中获取用户信息
         // 1.没有该用户
         try {
@@ -42,6 +43,9 @@ public class LoginCtr {
         }
         // 2.有用户,判断用户信息是否正确
         if (a.getName().equals(name) && a.getPassword().equals(password)) {
+
+            // 创建session
+//            session.setAttribute("name",a.getName());
             return new ResponseEntity<>("success",HttpStatus.OK);
         } else
             return new ResponseEntity<>("Fail", HttpStatus.UNAUTHORIZED);
