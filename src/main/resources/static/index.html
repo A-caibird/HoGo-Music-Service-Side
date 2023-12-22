@@ -25,6 +25,32 @@
                 console.log(error);
             });
     }
+    let ws = null;
+    let host = window.location.host
+
+    try {
+        ws = new WebSocket("ws://" +"localhost:8080"+ "/websocket/comboInfo");
+
+    } catch (e) {
+        console.log("错误:" + e)
+    }
+
+    ws.onopen = function () {
+        const message = 'Hello from client!';
+        ws.send(message);
+    };
+
+    ws.onmessage = function (data) {
+        let temp = JSON.parse(data.data)
+        comboInfo.value = temp
+        console.log(comboInfo.value)
+    };
+
+    ws.onclose = function () {
+        console.log('Disconnected from WebSocket server');
+    };
+
+
 </script>
 </body>
 </html>

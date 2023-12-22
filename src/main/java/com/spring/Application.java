@@ -8,7 +8,7 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 
 @SpringBootApplication
 @MapperScan("com.spring")
-@ServletComponentScan("com.spring.filter")
+@ServletComponentScan("com.spring")
 public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);

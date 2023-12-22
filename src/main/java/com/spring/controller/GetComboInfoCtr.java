@@ -23,6 +23,6 @@ public class GetComboInfoCtr {
 
     @GetMapping("/getComboInfo")
     public ResponseEntity<?> getComboInfo() {
-        return new ResponseEntity<>(combo.getComboInfo(), HttpStatusCode.valueOf(200));
+        return new ResponseEntity<>(combo.getAllInfo(), HttpStatusCode.valueOf(200));
     }
 }
