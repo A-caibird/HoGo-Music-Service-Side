@@ -47,7 +47,12 @@ public class UpgradeComboCtr {
             log.error("更新套餐信息失败,数据库出错");
             return new ResponseEntity<>("更新套餐信息失败,数据库出错", HttpStatusCode.valueOf(500));
         }
-        ws.sendCombo(1);
+        try {
+            ws.sendCombo(1);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>("Websocket Session already Expired", HttpStatusCode.valueOf(401));
+        }
         return new ResponseEntity<>("ok", HttpStatusCode.valueOf(200));
     }
 }

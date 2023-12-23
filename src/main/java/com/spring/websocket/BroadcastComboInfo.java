@@ -98,6 +98,6 @@ public class BroadcastComboInfo {
 
     public void sendCombo(int i) throws IOException {
         MyObject res = new MyObject(i, combo.getAllInfo());
-        this.session.getBasicRemote().sendText(JSON.toJSONString(res));
+        broadcastComboInfo.session.getBasicRemote().sendText(JSON.toJSONString(res));
     }
 }
