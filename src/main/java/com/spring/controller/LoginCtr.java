@@ -15,7 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:5173",allowCredentials = "true")
+//前后端分离项目背景下，跨域访问及一致性session问题（是否同一用户）。
+//
+//ps：以前做的项目都是前、后端部署在一个tomcat容器中，不会涉及到跨域访问以及一致性session问题。随着前后端分离架构的流行，前、后端部署在不同服务器等都会涉及到跨域等问题。
 public class LoginCtr {
     private Users users;
 
@@ -25,7 +28,7 @@ public class LoginCtr {
     }
 
     @PostMapping("/LogIn")
-    public ResponseEntity<String> login(@RequestBody LoginRequest user, HttpServletRequest request ,HttpSession httpSession) {
+    public ResponseEntity<String> login(@RequestBody LoginRequest user, HttpServletRequest request) {
 
         // 请求体参数
         String name = user.getName();
@@ -34,7 +37,7 @@ public class LoginCtr {
 
 
         UserInfo a = new UserInfo();
-//        HttpSession httpSession = request.getSession(true);
+        HttpSession session = request.getSession(true); // 获取当前会话，如果不存在则返回null
 
         // 从数据库中获取用户信息
         // 1.没有该用户
@@ -54,10 +57,10 @@ public class LoginCtr {
         // 2.有用户,判断用户信息是否正确
         if (a.getName().equals(name) && a.getPassword().equals(password)) {
 
-            System.out.println("创建新的httpSession={}" + httpSession.getId());
+            System.out.println("为用户:" + name + "创建httpSession={}" + session.getId());
 
             // 储存session
-            httpSession.setAttribute("name", a.getName());
+            session.setAttribute("name", a.getName());
 
             return new ResponseEntity<>("success", HttpStatus.OK);
         } else
