@@ -47,14 +47,14 @@ public class BroadcastComboInfo {
     @OnOpen
     public void open(Session session, EndpointConfig config) throws IOException, EncodeException {
         System.out.println("WebSocket链接建立");
-        broadcastComboInfo.session = session;
-//        broadcastComboInfo.httpSession = (HttpSession) config.getUserProperties().get(HttpSession.class.getName());
+        this.session = session;
+        this.httpSession = (HttpSession) config.getUserProperties().get(HttpSession.class.getName());
 //         为每一个客户端(以httpsession中存的用户名来区别)储存websocket session
-//        String username = (String) httpSession.getAttribute("name");
-//        onlineUsers.put(username, this);
+        String username = (String) httpSession.getAttribute("name");
+        onlineUsers.put(username, this);
 //         广播所有消息
 //        broadcastComboInfo();
-        broadcastComboInfo.sendCombo(0);
+//        broadcastComboInfo.sendCombo(0);
     }
 
 
