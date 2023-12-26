@@ -9,7 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:5173",allowCredentials = "true")
 public class UpMusicFileCtr {
     @Value("${musicfileDir}")
     private String musicfiledir;

@@ -15,7 +15,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:5173",allowCredentials = "true")
 public class GetCommentListCtrl {
     CommentList commentList;
     @Autowired

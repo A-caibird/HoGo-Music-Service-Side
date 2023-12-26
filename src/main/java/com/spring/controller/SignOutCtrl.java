@@ -23,7 +23,10 @@ public class SignOutCtrl {
         HttpSession session = request.getSession(); // 获取当前会话，如果不存在则返回null
         if (session != null) {
             String name = (String) session.getAttribute("name"); // 获取名为"name"的属性值
-            System.out.println(name);
+
+            // 测试同一个用户从浏览器发起请求是不是同一个sesssion
+//            System.out.println(name);
+//            System.out.println(session.getId());
             session.invalidate(); // 使会话无效
         }
         return new ResponseEntity<>("ok", HttpStatusCode.valueOf(200));

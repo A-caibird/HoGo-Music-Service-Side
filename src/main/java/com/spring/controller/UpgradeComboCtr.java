@@ -20,7 +20,7 @@ import java.net.http.WebSocket;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:5173",allowCredentials = "true")
 @Slf4j
 public class UpgradeComboCtr {
     private final BroadcastComboInfo ws;

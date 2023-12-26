@@ -11,7 +11,7 @@ import java.sql.Date;
 import java.text.SimpleDateFormat;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:5173",allowCredentials = "true")
 public class ShopVipCtr {
     private Vip vip;
 
