@@ -48,15 +48,16 @@ public class BroadcastComboInfo {
     public void open(Session session, EndpointConfig config) throws IOException, EncodeException {
         System.out.println("WebSocket链接建立");
         this.session = session;
+        broadcastComboInfo.session = session;
         this.httpSession = (HttpSession) config.getUserProperties().get(HttpSession.class.getName());
-//         为每一个客户端(以httpsession中存的用户名来区别)储存websocket session
+
+//      为每一个客户端(以httpsession中存的用户名来区别)储存websocket session
         String username = (String) httpSession.getAttribute("name");
         onlineUsers.put(username, this);
-//         广播所有消息
-//        broadcastComboInfo();
-//        broadcastComboInfo.sendCombo(0);
-    }
 
+//      广播所有消息
+        this.sendCombo(0);
+    }
 
     @OnClose
     public void close(Session session) {
@@ -67,29 +68,11 @@ public class BroadcastComboInfo {
         System.out.println(msg);
     }
 
-
-    // 只是向在线的用户(分配httpSession的用户广播消息)
-    public void broadcastComboInfo() throws EncodeException, IOException {
-//        Set<String> userlist = onlineUsers.keySet();
-//        List<ComboTable> comboList = null;
-//        String json = "";
-//        try {
-//            comboList = combo.getAllInfo();
-//            json = JSON.toJSONString(comboList);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        for (String i : userlist) {
-//            System.out.println(i);
-//            BroadcastComboInfo broadcastComboInfo = onlineUsers.get(i);
-//            broadcastComboInfo.session.getBasicRemote().sendText(json);
-//        }
-    }
-
     @Data
     private static class MyObject {
         private int type;
         private List<ComboTable> list;
+
         public MyObject(int type, List<ComboTable> list) {
             this.type = type;
             this.list = list;

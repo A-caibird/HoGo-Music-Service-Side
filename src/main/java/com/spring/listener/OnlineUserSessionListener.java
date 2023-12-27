@@ -27,7 +27,6 @@ public class OnlineUserSessionListener implements HttpSessionListener {
         // 将新创建的HttpSession添加到Map.Set中
         sessionIds.add(session.getId());
         sessionMap.put(session.getId(), session);
-        System.out.println(sessionIds.size());
         System.out.println("Session Created: ID-" + session.getId() + " Name-" + session.getAttribute("name"));
     }
 
