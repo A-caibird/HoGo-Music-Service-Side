@@ -23,6 +23,9 @@ web:
 
 server:
     port: 8080
+    servlet:
+      session:
+          timeout: 1800
 
 logging:
     config: src/main/resources/lombok-springboot-log.xml

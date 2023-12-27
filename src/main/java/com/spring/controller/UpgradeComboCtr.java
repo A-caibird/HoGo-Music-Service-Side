@@ -20,16 +20,15 @@ import java.net.http.WebSocket;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:5173",allowCredentials = "true")
+@CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
 @Slf4j
 public class UpgradeComboCtr {
-    private final BroadcastComboInfo ws;
+    private BroadcastComboInfo ws;
     private Combo combo;
 
     @Autowired
-    public UpgradeComboCtr(BroadcastComboInfo ws, Combo combo) {
+    public void setWs(BroadcastComboInfo ws) {
         this.ws = ws;
-        this.combo = combo;
     }
 
     @Autowired

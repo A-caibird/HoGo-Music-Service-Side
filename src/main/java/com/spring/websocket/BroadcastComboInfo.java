@@ -22,20 +22,28 @@ import java.util.concurrent.ConcurrentHashMap;
 @ServerEndpoint(value = "/websocket/comboInfo", configurator = GetHttpSessionConfigurator.class)
 @Component
 @Slf4j
+
 public class BroadcastComboInfo {
+
+    // websocket对象是多对象的,不受spring管理(受tomcat),spring管理的是单例(共享对象引用
+    private static BroadcastComboInfo broadcastComboInfo; //关键点1
     private static Map<String, BroadcastComboInfo> onlineUsers = new ConcurrentHashMap<>();
+
 
     private Session session;
     private HttpSession httpSession;
     private static Combo combo;
-    // 注意事项，注入bean的方式，因为spring管理的都是单例。WebSocket是对对象 相冲突
-    // 注入方式，这么写就可以了。
 
-    private static BroadcastComboInfo broadcastComboInfo; //关键点2
 
-    @PostConstruct  //关键点3,防止注入的BroadcastComboInfo实例变量为null的情况
+
+
+    // 关键点2,防止注入的BroadcastComboInfo实例变量为null的情况
+    // @PostConstruct修饰的方法会在服务器加载Servlet的时候运行，并且只会被服务器执行一次。
+    // 该注解只能作用于方法上，执行依赖注入后执行任何初始化操作。
+    @PostConstruct
     public void init() {
         broadcastComboInfo = this;
+        // 在WebSocket对象创建时，通过调用WebSocketManager.setWebSocket()方法来设置WebSocket对象的引用。
     }
 
     @Autowired
@@ -43,19 +51,18 @@ public class BroadcastComboInfo {
         BroadcastComboInfo.combo = combo;
     }
 
-
     @OnOpen
     public void open(Session session, EndpointConfig config) throws IOException, EncodeException {
-        System.out.println("WebSocket链接建立");
-        this.session = session;
-        broadcastComboInfo.session = session;
-        this.httpSession = (HttpSession) config.getUserProperties().get(HttpSession.class.getName());
+        log.info("WebSocket链接建立:更新vip套餐信息");
 
-//      为每一个客户端(以httpsession中存的用户名来区别)储存websocket session
-        String username = (String) httpSession.getAttribute("name");
+        broadcastComboInfo.session = session;
+        broadcastComboInfo.httpSession = (HttpSession) config.getUserProperties().get(HttpSession.class.getName());
+
+        // 为每一个客户端(以httpsession中存的用户名来区别)储存websocket session
+        String username = (String) broadcastComboInfo.httpSession.getAttribute("name");
         onlineUsers.put(username, this);
 
-//      广播所有消息
+        // 广播所有消息
         this.sendCombo(0);
     }
 
