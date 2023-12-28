@@ -2,10 +2,8 @@ package com.spring.controller.combo;
 
 import com.spring.dao.Combo;
 import com.spring.domain.SqlTable.ComboTable;
-import com.spring.websocket.BroadcastComboInfo;
+import com.spring.websocket.Endpoint.BroadcastComboInfo;
 import jakarta.websocket.EncodeException;
-import jakarta.websocket.OnOpen;
-import jakarta.websocket.Session;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatusCode;
@@ -16,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
-import java.net.http.WebSocket;
 import java.util.List;
 
 @RestController

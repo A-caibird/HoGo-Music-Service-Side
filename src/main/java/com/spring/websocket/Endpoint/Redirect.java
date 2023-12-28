@@ -1,5 +1,6 @@
-package com.spring.websocket;
+package com.spring.websocket.Endpoint;
 
+import com.spring.websocket.configurator.GetHttpSessionConfigurator;
 import jakarta.annotation.PostConstruct;
 import jakarta.servlet.http.HttpSession;
 import jakarta.websocket.*;

@@ -1,4 +1,4 @@
-package com.spring.websocket;
+package com.spring.websocket.configurator;
 
 import jakarta.servlet.http.HttpSession;
 import jakarta.websocket.HandshakeResponse;

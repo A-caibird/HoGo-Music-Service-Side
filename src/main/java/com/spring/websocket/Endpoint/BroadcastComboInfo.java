@@ -1,8 +1,9 @@
-package com.spring.websocket;
+package com.spring.websocket.Endpoint;
 
 import com.alibaba.fastjson.JSON;
 import com.spring.dao.Combo;
 import com.spring.domain.SqlTable.ComboTable;
+import com.spring.websocket.configurator.GetHttpSessionConfigurator;
 import jakarta.annotation.PostConstruct;
 import jakarta.servlet.http.HttpSession;
 import jakarta.websocket.*;
@@ -13,10 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
-import java.net.http.WebSocket;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 @ServerEndpoint(value = "/websocket/comboInfo", configurator = GetHttpSessionConfigurator.class)
