@@ -1,4 +1,4 @@
-package com.spring.controller;
+package com.spring.controller.topin;
 
 import com.spring.dao.Banlance;
 import com.spring.domain.RequestionParams.TopInRequest;

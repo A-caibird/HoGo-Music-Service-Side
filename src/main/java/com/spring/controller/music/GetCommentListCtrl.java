@@ -1,4 +1,4 @@
-package com.spring.controller;
+package com.spring.controller.music;
 
 import com.spring.dao.CommentList;
 import com.spring.domain.SqlTable.MusicComment;

@@ -1,4 +1,4 @@
-package com.spring.controller;
+package com.spring.controller.user;
 
 import com.spring.dao.Users;
 import com.spring.domain.RequestionParams.StopUserRequest;

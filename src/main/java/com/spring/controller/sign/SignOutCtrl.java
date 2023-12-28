@@ -1,4 +1,4 @@
-package com.spring.controller;
+package com.spring.controller.sign;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;

@@ -1,4 +1,4 @@
-package com.spring.controller;
+package com.spring.controller.sign;
 
 import com.spring.dao.Users;
 import com.spring.domain.RequestionParams.LoginRequest;

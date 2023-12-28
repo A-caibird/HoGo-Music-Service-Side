@@ -1,4 +1,4 @@
-package com.spring.controller;
+package com.spring.controller.combo;
 
 import com.spring.dao.Combo;
 import com.spring.diyAnnotation.interfaces.AutowiredField;

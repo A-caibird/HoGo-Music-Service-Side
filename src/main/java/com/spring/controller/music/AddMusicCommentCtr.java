@@ -1,4 +1,4 @@
-package com.spring.controller;
+package com.spring.controller.music;
 
 import com.spring.dao.CommentList;
 import lombok.extern.slf4j.Slf4j;

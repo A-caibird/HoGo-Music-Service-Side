@@ -1,4 +1,4 @@
-package com.spring.controller;
+package com.spring.controller.sign;
 
 import com.spring.dao.*;
 import com.spring.domain.RequestionParams.SignUpRequest;

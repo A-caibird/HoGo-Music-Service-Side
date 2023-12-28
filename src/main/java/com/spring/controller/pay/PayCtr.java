@@ -1,4 +1,4 @@
-package com.spring.controller;
+package com.spring.controller.pay;
 
 import com.spring.domain.RequestionParams.PayRequest;
 import com.spring.domain.SqlTable.Banlance;

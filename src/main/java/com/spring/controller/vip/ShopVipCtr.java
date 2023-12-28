@@ -1,4 +1,4 @@
-package com.spring.controller;
+package com.spring.controller.vip;
 
 import com.spring.dao.Vip;
 import com.spring.domain.RequestionParams.ShopVipRequest;
