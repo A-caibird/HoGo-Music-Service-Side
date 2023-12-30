@@ -30,7 +30,9 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
-            <version>3.1.4</version>
+            <scope>runtime</scope>
+            <optional>true</optional>
+            <!-- 为true表示项目在打包的时候不会被打包进项目中。-->
         </dependency>
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>

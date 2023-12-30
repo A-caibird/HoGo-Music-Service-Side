@@ -17,15 +17,25 @@ spring:
         #本地静态资源
         static-locations: file:${web.upload-path}
         #本地静态资源配置映射目录，应该是下面的方法
+    devtools:
+        restart:
+            additional-paths: src/main/resource/static
+    web:
+        resources:
+            static-locations[0]:
+                file:src/main/resources/static/
+            static-locations[1]:
+                classpath:/static/
 web:
     #本地磁盘存储路径,注意不要最后目录的/
     upload-path: /Users/acaibird/Documents/CodeExperimentSpace/Java/spring/src/main/resources/static
 
+
 server:
     port: 8080
     servlet:
-      session:
-          timeout: 1800
+        session:
+            timeout: 1800
 
 logging:
     config: src/main/resources/lombok-springboot-log.xml
