@@ -7,6 +7,7 @@ import jakarta.websocket.*;
 import jakarta.websocket.server.ServerEndpoint;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
+
 import java.io.IOException;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -15,7 +16,11 @@ import java.util.concurrent.ConcurrentHashMap;
 @Component
 @Slf4j
 public class Redirect {
-    private static Map<String, Session> onlineUsers = new ConcurrentHashMap<>();
+
+
+    // 为每一个用户存一个下线实例
+    private static Map<String, Redirect> onlineUsers = new ConcurrentHashMap<>();
+    private Session session;
     private static Redirect redirect;
 
     @PostConstruct
@@ -24,17 +29,39 @@ public class Redirect {
     }
 
     @OnOpen
-    public void open(Session session, EndpointConfig config) throws IOException, EncodeException {
+    public void onOpen(Session session, EndpointConfig config) throws IOException, EncodeException {
+        log.info("WebSocket链接建立: " + redirect.getClass().getSimpleName());
+
+        redirect.session = session;
+        this.session = session;
+
         HttpSession httpSession = (HttpSession) config.getUserProperties().get(HttpSession.class.getName());
-        onlineUsers.put(httpSession.getId(), session);
+
+        onlineUsers.put(httpSession.getId(), this);
+    }
+
+    @OnMessage
+    public void onMessage(String msg) {
+        log.info(redirect.getClass().getSimpleName() + "收到消息：" + msg + " --websocket");
+
     }
 
     @OnClose
-    public void close(Session session) {
+    public void onClose(Session session) {
+        log.info(redirect.getClass().getSimpleName() + ": close -- Websocket");
     }
 
-    public void redirectUrl(HttpSession httpSession) throws IOException {
-        Session user = onlineUsers.get(httpSession.getId());
-        user.getBasicRemote().sendText("session过期,请重新登录");
+    public void redirectUrl(String id) throws IOException {
+        Redirect re = onlineUsers.get(id);
+        if (re == null) {
+            log.warn("null redirect");
+        } else {
+            log.info("下线通知!");
+            re.session.getBasicRemote().sendText("logout");
+        }
+    }
+
+    public void test() {
+        log.info("test redirect");
     }
 }

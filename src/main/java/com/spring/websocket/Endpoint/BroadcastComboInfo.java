@@ -14,6 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -52,7 +54,7 @@ public class BroadcastComboInfo {
 
     @OnOpen
     public void open(Session session, EndpointConfig config) throws IOException, EncodeException {
-        log.info("WebSocket链接建立:更新vip套餐信息");
+        log.info("WebSocket链接建立: "+broadcastComboInfo.getClass().getSimpleName());
 
         broadcastComboInfo.session = session;
         broadcastComboInfo.httpSession = (HttpSession) config.getUserProperties().get(HttpSession.class.getName());
@@ -62,16 +64,17 @@ public class BroadcastComboInfo {
         onlineUsers.put(username, this);
 
         // 广播所有消息
-        this.sendCombo(0);
+        broadcastComboInfo.sendCombo(0);
     }
 
     @OnClose
     public void close(Session session) {
+        log.info(broadcastComboInfo.getClass().getSimpleName() + ": close -- Websocket");
     }
 
     @OnMessage
-    public void message(String msg, Session session) {
-        System.out.println(msg);
+    public void message(String msg, Session session) throws UnsupportedEncodingException {
+        log.info(broadcastComboInfo.getClass().getSimpleName()+"收到消息：" + msg+" --websocket");
     }
 
     @Data

@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.HttpSessionEvent;
 import jakarta.servlet.http.HttpSessionListener;
 import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
@@ -16,18 +17,22 @@ import java.util.*;
 @WebListener
 @Component
 @Order(1) // 设置较低的顺序值
+@Slf4j
 public class OnlineUserSessionListener implements HttpSessionListener {
     // 使用Map保存所有的HttpSession
     @Getter
     private final static Map<String, HttpSession> sessionMap = new HashMap<>();
 
-    @Getter
     // 保证多线程安全
+    @Getter
     private static final Set<String> sessionIds = Collections.synchronizedSet(new HashSet<>());
-    private Redirect redirect;
+
+    // 获取websockt注入
+    private static Redirect redirect;
+
     @Autowired
     public void setRedirect(Redirect redirect) {
-        this.redirect = redirect;
+        OnlineUserSessionListener.redirect = redirect;
     }
 
 
@@ -43,14 +48,16 @@ public class OnlineUserSessionListener implements HttpSessionListener {
     @Override
     public void sessionDestroyed(HttpSessionEvent se) {
         HttpSession httpSession = se.getSession();
-
-        //  通知客户端session过期
-        try {
-            redirect.redirectUrl(httpSession);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        if (redirect == null)
+            log.warn("redirect is null");
+        else {
+            // 通知客户端session过期
+            try {
+                redirect.redirectUrl(httpSession.getId());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
-
         // 从Map,Set中移除已销毁的HttpSession
         sessionIds.remove(httpSession.getId());
         sessionMap.remove(httpSession.getId());
