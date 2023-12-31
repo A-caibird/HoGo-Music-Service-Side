@@ -14,10 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 
 @ServerEndpoint(value = "/websocket/comboInfo", configurator = GetHttpSessionConfigurator.class)
@@ -30,12 +29,9 @@ public class BroadcastComboInfo {
     private static BroadcastComboInfo broadcastComboInfo; //关键点1
     private static Map<String, BroadcastComboInfo> onlineUsers = new ConcurrentHashMap<>();
 
-
     private Session session;
     private HttpSession httpSession;
     private static Combo combo;
-
-
 
 
     // 关键点2,防止注入的BroadcastComboInfo实例变量为null的情况
@@ -54,27 +50,30 @@ public class BroadcastComboInfo {
 
     @OnOpen
     public void open(Session session, EndpointConfig config) throws IOException, EncodeException {
-        log.info("WebSocket链接建立: "+broadcastComboInfo.getClass().getSimpleName());
+        log.info("WebSocket链接建立: " + broadcastComboInfo.getClass().getSimpleName());
 
         broadcastComboInfo.session = session;
         broadcastComboInfo.httpSession = (HttpSession) config.getUserProperties().get(HttpSession.class.getName());
 
         // 为每一个客户端(以httpsession中存的用户名来区别)储存websocket session
-        String username = (String) broadcastComboInfo.httpSession.getAttribute("name");
-        onlineUsers.put(username, this);
+        onlineUsers.put(broadcastComboInfo.httpSession.getId(), this);
 
         // 广播所有消息
         broadcastComboInfo.sendCombo(0);
     }
 
     @OnClose
-    public void close(Session session) {
-        log.info(broadcastComboInfo.getClass().getSimpleName() + ": close -- Websocket");
+    public void close(Session session, CloseReason reason) {
+        log.info(broadcastComboInfo.getClass().getSimpleName() + ":,code " + reason.getCloseCode() + "  reason:" + reason.getReasonPhrase() + " -- Websocket");
     }
 
     @OnMessage
-    public void message(String msg, Session session) throws UnsupportedEncodingException {
-        log.info(broadcastComboInfo.getClass().getSimpleName()+"收到消息：" + msg+" --websocket");
+    public void message(String msg, Session session) throws IOException {
+        if (Objects.equals(msg, "heartbeat")) {
+            broadcastComboInfo.session.getBasicRemote().sendText("receive heartbeat");
+            log.info("websocket心跳 --" + broadcastComboInfo.getClass().getSimpleName());
+        }
+        log.info(broadcastComboInfo.getClass().getSimpleName() + "收到消息：" + msg + " --websocket");
     }
 
     @Data

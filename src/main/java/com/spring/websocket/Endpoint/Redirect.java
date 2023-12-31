@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 
 @ServerEndpoint(value = "/websocket/logout", configurator = GetHttpSessionConfigurator.class)
@@ -41,14 +42,16 @@ public class Redirect {
     }
 
     @OnMessage
-    public void onMessage(String msg) {
+    public void onMessage(String msg) throws IOException {
+        if (Objects.equals(msg, "heartbeat")) {
+            redirect.session.getBasicRemote().sendText("receive heartbeat");
+        }
         log.info(redirect.getClass().getSimpleName() + "收到消息：" + msg + " --websocket");
-
     }
 
     @OnClose
-    public void onClose(Session session) {
-        log.info(redirect.getClass().getSimpleName() + ": close -- Websocket");
+    public void onClose(Session session, CloseReason reason) {
+        log.info(redirect.getClass().getSimpleName() + ": close ,code " + reason.getCloseCode() + "  reason:" + reason.getReasonPhrase() + " -- Websocket");
     }
 
     public void redirectUrl(String id) throws IOException {
@@ -58,10 +61,7 @@ public class Redirect {
         } else {
             log.info("下线通知!");
             re.session.getBasicRemote().sendText("logout");
+            onlineUsers.remove(id);
         }
-    }
-
-    public void test() {
-        log.info("test redirect");
     }
 }
