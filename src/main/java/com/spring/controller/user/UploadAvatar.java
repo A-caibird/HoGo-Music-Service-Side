@@ -1,7 +1,9 @@
 package com.spring.controller.user;
 
+import com.spring.dao.Avatar;
+import com.spring.domain.RequestionParams.A;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -18,6 +20,11 @@ import java.io.IOException;
 @Slf4j
 public class UploadAvatar {
 
+    private Avatar avatar;
+    @Autowired
+    public void setAvatar(Avatar avatar){
+        this.avatar = avatar;
+    }
     @PostMapping("/uploadAvatar")
     public ResponseEntity<?> handler(@RequestParam("avatar") MultipartFile file, @RequestParam("name") String name) throws IOException {
         String Name = file.getOriginalFilename();
@@ -33,8 +40,13 @@ public class UploadAvatar {
             destinationFile.delete();
             log.info("用户:" + name + " 更新头像");
         }
-        file.transferTo(destinationFile);
 
+        try{
+            avatar.insert(name,fileName);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        file.transferTo(destinationFile);
         return new ResponseEntity<>("http://localhost:8080/avatar/" + fileName, HttpStatusCode.valueOf(200));
     }
 }
