@@ -26,6 +26,31 @@ spring:
                 file:src/main/resources/static/
             static-locations[1]:
                 classpath:/static/
+    mail:
+        host:
+            smtp.qq.com
+        username:
+            1262229357@qq.com
+        password:
+            sukpkmlqdjmqjjff
+        from:
+            lian.wk04201@foxmail.com
+        default-encoding:
+            utf-8
+        properties:
+            mail:
+                transport:
+                    protocol: smtp
+                smtp:
+                    socketFactory:
+                        class: javax.net.ssl.SSLSocketFactory
+                    port: ${spring.mail.port}
+                    auth: true
+                    starttls:
+                        enable: true
+                        required: true
+        port:
+            465
 web:
     #本地磁盘存储路径,注意不要最后目录的/
     upload-path: /Users/acaibird/Documents/CodeExperimentSpace/Java/spring/src/main/resources/static
