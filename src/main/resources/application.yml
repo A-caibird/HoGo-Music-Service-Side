@@ -14,9 +14,6 @@ spring:
         #本地静态资源访问url前缀
         static-path-pattern: /**
 
-        #本地静态资源
-        static-locations: file:${web.upload-path}
-        #本地静态资源配置映射目录，应该是下面的方法
     devtools:
         restart:
             additional-paths: src/main/resource/static
