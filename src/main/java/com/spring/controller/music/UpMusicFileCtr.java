@@ -26,7 +26,7 @@ public class UpMusicFileCtr {
         int cnt = musicList.getSongList().size();
         String Name = file.getOriginalFilename();
         System.out.println(Name);
-        String fileName = Integer.toString(cnt + 1) + ".mp3";
+        String fileName = cnt + 1 + ".mp3";
         file.transferTo(new File(musicfiledir + fileName));
         return fileName;
     }
