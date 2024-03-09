@@ -20,7 +20,7 @@ public class RootGetCtr {
         log.info("info requestion RootGet");
         A a = new A();
         a.setStr("dasdasdf");
-        mailService.sendSimpleMail("lian.wk04201@foxmail.com","你好","验证码是2020");
+        //mailService.sendSimpleMail("lian.wk04201@foxmail.com","你好","验证码是2020");
         return new ResponseEntity<>(a, HttpStatus.OK);
     }
 }
